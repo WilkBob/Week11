@@ -18,6 +18,7 @@ class Game {
         this.display = document.querySelector('#status');
         //assign reset method to resetButton
         this.resetButton.addEventListener('click', () => this.reset());
+        this.resetButton.addEventListener('touchend', () => this.reset());
         //bind click method to handler on specific object (for removal later)
         this.clickHandler = this.click.bind(this);
     }
@@ -26,6 +27,7 @@ class Game {
         this.squares.forEach(square => {
             //add clickhandler to all squares
             square.element.addEventListener('click', this.clickHandler);
+            square.element.addEventListener('touchend', this.clickHandler);
         });
         this.display.textContent = `${this.currentPlayer}'s turn`;
     }
@@ -116,6 +118,11 @@ class Game {
             winnerAlert.remove();
             this.reset();
         });
+        resetButton.addEventListener('touchend', () => {
+            winnerScreenDim.remove();
+            winnerAlert.remove();
+            this.reset();
+        });
 //add button to alert, then add alert and dimmer to DOM
         
         winnerAlert.appendChild(resetButton);
@@ -126,6 +133,7 @@ class Game {
     removeClickHandlers() {
         this.squares.forEach(square => {
             square.element.removeEventListener('click', this.clickHandler);
+            square.element.removeEventListener('touchend', this.clickHandler);
         });
     }
 }
