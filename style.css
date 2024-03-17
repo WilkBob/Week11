@@ -1,0 +1,133 @@
+:root{
+    --black: #050517;
+    --orange: #CF5C36;
+    --sand: #EFC88B;
+    --pale: #F4E3B2;
+    --grey: #d3d5d79d;
+    --blue: #6868f1;
+
+    --black-hover: #0A0A2D;
+    --orange-hover: #E07A4F;
+    --sand-hover: #F4D3A2;
+    --pale-hover: #F8E9C2;
+    --grey-hover: #E3E5E7;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, var(--orange), var(--sand));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    z-index: 1;
+}
+
+#game{
+    text-align: center;
+    padding: 20px;
+    padding-inline: 50px;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s;
+}
+
+.square{
+    width: 100px;
+    height: 100px;
+    background-color: var(--grey);
+    display: inline-block;
+    transition: all 0.3s;
+    border: var(--black) solid 1px;
+    position: relative;
+    font-size: 50px;
+    line-height: 100px;
+    color: var(--black);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.square:hover{
+    background-color: var(--grey-hover);
+    scale: 1.1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+.status-bar{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--black);
+}
+
+button#reset{
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: var(--black);
+    color: var(--pale);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 101;
+}
+
+button#reset:hover{
+    background-color: var(--black-hover);
+    color: var(--pale-hover);
+    scale: 1.1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.winner-alert{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    z-index: 200;
+    background-color: var(--pale);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.winner-screen-dim{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://i.gifer.com/origin/23/23ca294b4b575ccd53ce8cca4da057ab_w200.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: fadeIn 1s;
+}
+
+
+.fade-in{
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
